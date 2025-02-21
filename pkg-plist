@@ -9,6 +9,7 @@ share/fish/vendor_completions.d/flameshot.fish
 %%DATADIR%%/translations/Internationalization_cs.qm
 %%DATADIR%%/translations/Internationalization_de_DE.qm
 %%DATADIR%%/translations/Internationalization_el.qm
+%%DATADIR%%/translations/Internationalization_en.qm
 %%DATADIR%%/translations/Internationalization_es.qm
 %%DATADIR%%/translations/Internationalization_eu.qm
 %%DATADIR%%/translations/Internationalization_fa.qm
