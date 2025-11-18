@@ -1,6 +1,6 @@
 # PORTNAME block
 PORTNAME=       flameshot
-DISTVERSION=    g20250212
+DISTVERSION=    g20250226
 CATEGORIES=     deskutils
 MASTER_SITES=   GH
 PKGNAMESUFFIX=  -dev
@@ -9,11 +9,11 @@ DIST_SUBDIR=    ${PORTNAME}${PKGNAMESUFFIX}
 
 # Maintainer block
 MAINTAINER=     nope@nothere
-COMMENT=	Powerful yet simple to use screenshot software
-WWW=		https://flameshot.org/
+COMMENT=		Powerful yet simple to use screenshot software
+WWW=			https://flameshot.org/
 
 # License block
-LICENSE=	GPLv3
+LICENSE=		GPLv3
 LICENSE_FILE=   ${WRKSRC}/LICENSE
 
 # dependencies
@@ -22,27 +22,26 @@ LICENSE_FILE=   ${WRKSRC}/LICENSE
 #RUN_DEPENDS=
 
 # uses block
-USES=		cmake qmake qt:5
-#USES=		cmake compiler:c++17-lang qmake qt:5
+USES=			cmake qt:5
+#USES=			cmake qmake qt:5
+#USES=			cmake compiler:c++17-lang qmake qt:5
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     flameshot-org
 GH_PROJECT=     flameshot
-GH_TAGNAME=	7aa69e4e253b0a69b67c018b701db5ee8448142c
+GH_TAGNAME=		aad3a5e42e2e98af7bfb6bbda0e3d1b9c0be7497
 
-USE_GL=		gl
-USE_QT=		core dbus gui linguist network svg widgets buildtools:build
+USE_GL=			gl
+USE_QT=			linguist
+#USE_QT=			core dbus gui linguist network svg widgets buildtools:build
 
 # uses=cmake related variables
-CMAKE_ARGS=	\
-			-DCMAKE_BUILD_TYPE="MinSizeRel"
-# This variable is necessary to get a proper pkg-plist
-CMAKE_INSTALL_PREFIX=${STAGEDIR}/${PREFIX}
+CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel"
 
 # conflicts
-CONFLICTS=	flameshot
+CONFLICTS=		flameshot
 
 # wrksrc block
-WRKSRC=	${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
+WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 # packaging list block
 #DOCS=		*
