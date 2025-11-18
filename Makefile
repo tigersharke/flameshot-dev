@@ -1,6 +1,6 @@
 # PORTNAME block
 PORTNAME=       flameshot
-DISTVERSION=    g20250307
+DISTVERSION=    g20250317
 CATEGORIES=     deskutils
 MASTER_SITES=   GH
 PKGNAMESUFFIX=  -dev
@@ -28,7 +28,7 @@ USES=			cmake qt:5
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     flameshot-org
 GH_PROJECT=     flameshot
-GH_TAGNAME=		3b5459f99df139fbabb8236d0b84e98d0b14c70c
+GH_TAGNAME=		042d6900609f8569a1cc9ad4e7ba8743f29865fd
 
 USE_GL=			gl
 USE_QT=			linguist
