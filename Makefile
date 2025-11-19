@@ -1,6 +1,6 @@
 # PORTNAME block
 PORTNAME=       flameshot
-DISTVERSION=    g20250501
+DISTVERSION=    g20250502
 CATEGORIES=     deskutils
 MASTER_SITES=   GH
 PKGNAMESUFFIX=  -dev
@@ -28,11 +28,12 @@ USES=			cmake qt:5
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     flameshot-org
 GH_PROJECT=     flameshot
-GH_TAGNAME=		14619b120648db86bf524f2c0231ca88866cea75
+GH_TAGNAME=		7236570ca2307c1192752575345af8de53127a4c
 
 USE_GL=			gl
 USE_QT=			linguist
-#USE_QT=			core dbus gui linguist network svg widgets buildtools:build
+# Is it finding these things below without being mentioned?
+#USE_QT=		core dbus gui linguist network svg widgets buildtools:build
 
 # uses=cmake related variables
 CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel"
@@ -55,6 +56,7 @@ WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 #.include <bsd.port.options.mk>
 
+# Is there any other way to do this, is it truly necessary?
 post-patch:
 	@${REINPLACE_CMD} \
 	-e 's,$${CMAKE_INSTALL_FULL_BINDIR},${LOCALBASE}/bin,1' \
