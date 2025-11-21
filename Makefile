@@ -1,6 +1,6 @@
 # PORTNAME block
 PORTNAME=       flameshot
-DISTVERSION=    g20250517
+DISTVERSION=    g20251118
 CATEGORIES=     deskutils
 MASTER_SITES=   GH
 PKGNAMESUFFIX=  -dev
@@ -17,26 +17,29 @@ LICENSE=		GPLv3
 LICENSE_FILE=   ${WRKSRC}/LICENSE
 
 # dependencies
-#BUILD_DEPENDS=
-#LIB_DEPENDS=
+BUILD_DEPENDS=	qt6-5compat>0:devel/qt6-5compat \
+				qt6-tools>0:devel/qt6-tools \
+				color-widgets-qt5>0:x11-toolkits/color-widgets-qt5
+LIB_DEPENDS=	libkdsingleapplication-qt6.so:devel/kdsingleapplication
 #RUN_DEPENDS=
 
 # uses block
-USES=			cmake qt:5
-#USES=			cmake qmake qt:5
+USES=			cmake qt:6 desktop-file-utils pkgconfig:build
+#USES=			cmake qmake qt:6 pkgconfig:build
 #USES=			cmake compiler:c++17-lang qmake qt:5
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     flameshot-org
 GH_PROJECT=     flameshot
-GH_TAGNAME=		f7a049ee78531b7dfa36ead4945ce9c721d90bfe
+GH_TAGNAME=		0f37bf09972c7e66ed78ad0460d2ebce97b82809
 
 USE_GL=			gl
-USE_QT=			linguist
-# Is it finding these things below without being mentioned?
+USE_QT=			5compat base declarative multimedia svg tools:build translations:build
 #USE_QT=		core dbus gui linguist network svg widgets buildtools:build
 
 # uses=cmake related variables
-CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel"
+CMAKE_ARGS=		-DCMAKE_BUILD_TYPE="MinSizeRel" \
+				-DUSE_EXTERNAL_SINGLEAPPLICATION="ON" \
+				-DFETCHCONTENT_FULLY_DISCONNECTED="FALSE"
 
 # conflicts
 CONFLICTS=		flameshot
