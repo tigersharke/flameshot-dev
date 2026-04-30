@@ -3,7 +3,6 @@ PORTNAME=       flameshot
 DISTVERSION=    g20260425
 CATEGORIES=     deskutils
 MASTER_SITES=   GH
-#MASTER_SITES=   GH,GL
 PKGNAMESUFFIX=  -dev
 DISTNAME=       ${PORTNAME}-${GH_TAGNAME}
 DIST_SUBDIR=    ${PORTNAME}${PKGNAMESUFFIX}
@@ -24,7 +23,8 @@ LIB_DEPENDS=	libkdsingleapplication-qt6.so:devel/kdsingleapplication \
 #				libQt6Designer.so:devel/qt6-tools
 
 # uses block
-USES=			cmake qmake qt:5 qt:6 desktop-file-utils gl pkgconfig:build
+#USES=			cmake qmake qt:5 qt:6 desktop-file-utils gl #pkgconfig:build
+USES=			cmake qt:5 qt:6 desktop-file-utils gl
 
 USE_GITHUB=     nodefault
 GH_ACCOUNT=     flameshot-org
@@ -51,8 +51,8 @@ CONFLICTS=		flameshot
 WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 # packaging list block
-#DOCS=		*
-#PORTDATA=	*
+DOCS=		*
+PORTDATA=	*
 
 # options definitions
 
@@ -60,17 +60,6 @@ WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 # options helpers
 
-#.include <bsd.port.options.mk>
-
-# Is there any other way to do this, is it truly necessary?
-#post-patch:
-#	@${REINPLACE_CMD} \
-#	-e 's,$${CMAKE_INSTALL_FULL_BINDIR},${LOCALBASE}/bin,1' \
-#    -e 's,^\(Exec=\)@LAUNCHER_EXECUTABLE@,\1${LOCALBASE}/bin/${PORTNAME},1' \
-#	${WRKSRC}/data/dbus/org.flameshot.Flameshot.service.in \
-#	${WRKSRC}/data/desktopEntry/package/org.flameshot.Flameshot.desktop
-
-# patch in files cures this
-# ld: error: unable to find library -lQtColorWidgets
+.include <bsd.port.options.mk>
 
 .include <bsd.port.mk>
