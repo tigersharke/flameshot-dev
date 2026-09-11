@@ -1,0 +1,11 @@
+--- src/CMakeLists.txt.orig	2026-09-11 06:16:45 UTC
++++ src/CMakeLists.txt
+@@ -187,7 +187,7 @@ target_link_libraries(
+         Qt${QT_VERSION_MAJOR}::Svg
+         Qt${QT_VERSION_MAJOR}::Network
+         Qt${QT_VERSION_MAJOR}::Widgets
+-        QtColorWidgets
++        QtColorWidgets-Qt52
+ )
+ if (UNIX)
+ target_link_libraries(
