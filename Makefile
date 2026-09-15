@@ -1,6 +1,6 @@
 # PORTNAME block
 PORTNAME=       flameshot
-DISTVERSION=    g20260910
+DISTVERSION=    g20260912
 CATEGORIES=     deskutils
 MASTER_SITES=   GH GL
 PKGNAMESUFFIX=  -dev
@@ -31,7 +31,7 @@ USES=		cmake ninja qt:6 desktop-file-utils gl pkgconfig
 USE_GITHUB=     yes
 GH_ACCOUNT=     flameshot-org
 GH_PROJECT=     flameshot
-GH_TAGNAME=	29a33f5e6ea87859f2ca79e67c62008e98fbc2d8
+GH_TAGNAME=	3458585e323f7893d0391a0fa0ade08467b1fbf6
 
 #USE_GITLAB=	nodefault
 #GL_ACCOUNT=	mattbas
@@ -61,7 +61,10 @@ CMAKE_ARGS=	-DUSE_WAYLAND_CLIPBOARD=0 \
 		-DCMAKE_AUTOUIC=ON
 
 # Fixes:
-# 1/0 for boolean variables. Disallow wayland clipboard means no kf6-kguiaddons. And one small patch to rename the QtColorWidget library.
+# 1/0 for boolean variables. Disallow wayland clipboard means no kf6-kguiaddons.
+# And one small patch to rename the QtColorWidget library.
+#
+# Could the difficulties with running this on X11 instead of wayland be the config?
 
 # conflicts
 CONFLICTS=	flameshot
